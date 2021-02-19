@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS temp (
+	temp_id serial PRIMARY KEY,
+	temp_array VARCHAR[]
+);
+
+INSERT INTO temp (temp_id)
+SELECT student_id FROM interests ON CONFLICT DO NOTHING;
+
+UPDATE temp
+	SET temp_array = ARRAY(SELECT interest FROM interests WHERE student_id = temp_id);
+
+TRUNCATE interests;
+
+ALTER TABLE interests
+	ALTER COLUMN interest TYPE VARCHAR[] USING ARRAY[interest];
+ALTER TABLE interests
+	RENAME COLUMN interest TO interests;
+
+INSERT INTO interests
+SELECT * FROM temp;
+
+ALTER TABLE students
+	RENAME COLUMN st_id TO student_id;
+ALTER TABLE students
+	ALTER COLUMN st_name TYPE VARCHAR(30),
+	ALTER COLUMN st_last TYPE VARCHAR(30);
+
+DROP TABLE temp;

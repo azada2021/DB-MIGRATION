@@ -1,0 +1,37 @@
+INSERT INTO public.students(
+	st_id, st_name, st_last)
+	VALUES (1, 'Konul', 'Qurbanova');
+INSERT INTO public.students(
+	st_id, st_name, st_last)
+	VALUES (2, 'Shahnur', 'Isgandarli');
+INSERT INTO public.students(
+	st_id, st_name, st_last)
+	VALUES (1, 'Natavan ', 'Mammadova');
+
+INSERT INTO public.interests(
+	student_id, interest)
+	VALUES (1, 'Tennis');
+INSERT INTO public.interests(
+	student_id, interest)
+	VALUES (1, 'Literature');
+INSERT INTO public.interests(
+	student_id, interest)
+	VALUES (1, 'Math');
+INSERT INTO public.interests(
+	student_id, interest)
+	VALUES (2, 'Tennis');
+INSERT INTO public.interests(
+	student_id, interest)
+	VALUES (3, 'Math');
+INSERT INTO public.interests(
+	student_id, interest)
+	VALUES (3, 'Music');
+INSERT INTO public.interests(
+	student_id, interest)
+	VALUES (2, 'Football');
+INSERT INTO public.interests(
+	student_id, interest)
+	VALUES (1, 'Chemistry');
+INSERT INTO public.interests(
+	student_id, interest)
+	VALUES (3, 'Chess');
